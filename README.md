@@ -6,4 +6,5 @@ Integrate or build upon it for free in your personal or commercial projects. Ple
 
 Read more here: http://tympanus.net/codrops/licensing/
 
+Trying to add Overlay effects by Magdiel
 
