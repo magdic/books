@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html ng-app="BookStore" lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
@@ -13,75 +13,28 @@
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/book.css" />
 		<script src="js/modernizr.custom.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+		<script src="js/script.js"></script>
 	</head>
-	<body>
+	<body ng-controller="booksCtrl">
 		<div class="container">
-			<!-- Top Navigation -->
-			<!-- <div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/PseudoElementsImageCaptions/"><span>Previous Demo</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=15806"><span>Back to the Codrops Article</span></a></span>
-			</div> -->
+			
 			<header>
-				<h1>Books Store<span>for Dummies</span></h1>	
-				<nav class="codrops-demos">
-					<!-- <a class="current-demo" href="index.html">Hardcover</a>
-					<a href="index2.html">Paperback</a> -->
-				</nav>
+				<h1>Books Store</h1>	
+				<!-- This call the angular query ng -->
+				<form id="demo-2"><input type="search" placeholder="Search..." ng-model="query"/><form>
 			</header>
 			<div class="component">
 
-				<ul class="align">
-					<li>
-						<figure class='book'>
-
-							<!-- Front -->
-
-							<ul class='hardcover_front'>								
-								<li>
-									<span class="ribbon">new</span>
-									<img src="img/css.jpg" alt="" width="100%" height="100%">
-								</li>
-								<li></li>
-							</ul>
-
-							<!-- Pages -->
-
-							<ul class='page'>
-								<li></li>
-								<li>
-									<a class="btn" href="#">Download</a>
-									<a class="btn" href="#">Preview</a>
-								</li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-
-							<!-- Back -->
-
-							<ul class='hardcover_back'>
-								<li></li>
-								<li></li>
-							</ul>
-							<ul class='book_spine'>
-								<li></li>
-								<li></li>
-							</ul>
-							<figcaption>
-								<h1>CSS Ninja</h1>
-								<span>By Ian Pouncey and Richard York</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</figcaption>
-						</figure>
-					</li>
-					<li>
-						<figure class='book'>
+				<ul  class="align">
+					<li ng-repeat="book in books | filter:queryFilter">
+						<figure  class='book'>
 
 							<!-- Front -->
 
 							<ul class='hardcover_front'>
 								<li>
-									<img src="img/js-3rd.jpg" alt="" width="100%" height="100%">
+									<img src="{{book.image}}" alt="" width="100%" height="100%">
 								</li>
 								<li></li>
 							</ul>
@@ -109,94 +62,15 @@
 								<li></li>
 							</ul>
 							<figcaption>
-								<h1>Storm JS</h1>
-								<span>By Nicholas C. Zakas</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+								<h1>{{book.book}}</h1>
+								<span>{{book.autor}}</span>
+								<p>{{book.description}}</p>
 							</figcaption>
 						</figure>
 					</li>
-					<li>
-						<figure class='book'>
+  
 
-						<!-- Front -->
 
-							<ul class='hardcover_front'>
-								<li>
-									<img src="img/html5.jpg" alt="" width="100%" height="100%">
-								</li>
-								<li></li>
-							</ul>
-
-						<!-- Pages -->
-
-							<ul class='page'>
-								<li></li>
-								<li>
-									<a class="btn" href="#">Download</a>
-								</li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-
-						<!-- Back -->
-
-							<ul class='hardcover_back'>
-								<li></li>
-								<li></li>
-							</ul>
-							<ul class='book_spine'>
-								<li></li>
-								<li></li>
-							</ul>
-							<figcaption>
-								<h1>HTML5 Canvas</h1>
-								<span>By Eric Rowell</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-							</figcaption>
-						</figure>
-					</li>
-					<li>
-						<figure class='book'>
-
-						<!-- Front -->
-
-							<ul class='hardcover_front'>
-								<li>
-									<img src="img/php.jpg" alt="" width="100%" height="100%">
-								</li>
-								<li></li>
-							</ul>
-
-						<!-- Pages -->
-
-							<ul class='page'>
-								<li></li>
-								<li>
-									<a class="btn" href="#">Download</a>
-								</li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-
-						<!-- Back -->
-
-							<ul class='hardcover_back'>
-								<li></li>
-								<li></li>
-							</ul>
-							<ul class='book_spine'>
-								<li></li>
-								<li></li>
-							</ul>
-							<figcaption>
-								<h1>Php Plugins</h1>
-								<span>By Robin Nixon</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-							</figcaption>
-						</figure>
-					</li>
 				</ul>
 				<p class="note">Please note that this only works in browsers that support CSS 3D Transforms. Also note that IE10 <strong>does not</strong> support <em>preserve-3d</em> which is needed for this demo.</p>
 			</div>
